@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Using untill loop to print Best School
+
+iter="10"
+until [ "$iter" -eq 0 ]; do
+	echo "Best School"
+	((iter--))
+done
