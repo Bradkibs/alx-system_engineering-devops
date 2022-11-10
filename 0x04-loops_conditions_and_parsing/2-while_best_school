@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Prints Best school 10 times using while loop
+item="0"
+while [ $item -lt 10 ]; do
+	echo "Best School"
+	((item++))
+done
