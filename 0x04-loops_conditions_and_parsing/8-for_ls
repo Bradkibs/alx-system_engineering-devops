@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # an ls loop to print each file in a new line
-shopt -s nullglob
-for i in $(ls -- *);do
-	echo "$i"
+LST=$(ls)
+for i in $LST;do
+	echo "$i" | cut -d '-' -f2
 done
