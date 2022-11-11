@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# fizzbuzz challenge
+iter="1"
+while [ "$iter" -le 100 ]; do
+	var1=$((iter % 3))
+	var2=$((iter % 5))
+	var3=$((iter % 15))
+	if [ "$var3" -eq 0 ]; then
+		echo "FizzBuzz"
+	elif [ "$var1" -eq 0 ]; then
+			echo "Fizz"
+	elif [ "$var2" -eq 0 ]; then
+		echo "Buzz"
+	else
+		echo "$iter"
+	fi
+	((iter++))
+done
+
