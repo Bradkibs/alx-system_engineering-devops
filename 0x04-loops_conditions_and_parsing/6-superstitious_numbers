@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # displays 4 and then bad luck from China for the 4th loop iteration
 i="1"
 while [ "$i" -lt 21 ];do
