@@ -14,7 +14,7 @@ $ apt-get install -y ruby-shadow
 $ apt-get install -y puppet
 $ gem install puppet-lint
 ```
-<p>If the ruby version is deprecated please use the latest ruby version </p>
+If the ruby version is deprecated please use the latest ruby version.
 ```
 $ apt-get install -y ruby
 ```
