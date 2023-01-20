@@ -2,28 +2,18 @@
 # Configures a new ubuntu machine by installing
 # Nginx where it should be listening on port 80
 # Serve a page that would return a Hello World string
-#
-# colors
-blue='\e[1;34m'
-brown='\e[0;33m'
-green='\e[1;32m'
-reset='\033[0m'
 
-echo -e "${blue}Updating and installing ${brown}Nginx${blue}.${reset}\n"
+echo -e "Updating and installing Nginx.\n"
 apt-get update -y
 apt-get install nginx -y
 
-echo -e "\n${blue}Setting up some minor stuff.${reset}\n"
+echo -e "\nSetting up some minor stuff.\n"
 
 # allowing nginx on firewall
 ufw allow 'Nginx HTTP'
 
-# Give the user ownership to website files for easy editing
-chown -R "$USER":"$USER" /var/www/html
-chmod -R 755 /var/www
-
 # Creating new index
-echo -e "Hello World!" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
 # Starting nginx
 service nginx start
