@@ -72,11 +72,14 @@ Is the software started? `init`, `init.d`:
 ```
 service NAME_OF_THE_SERVICE status
 /etc/init.d/NAME_OF_THE_SERVICE status
-Is the software process running? pgrep, ps:
+```
+
+Is the software process running? `pgrep`, `ps`:
+```
 pgrep -lf NAME_OF_THE_PROCESS
 ps auxf
 ```
-Is there anything interesting in the logs? look for log files in /var/log/ and tail -f is your friend
+Is there anything interesting in the logs? look for log files in `/var/log/` and `tail -f` is your friend
 Debugging is fun
 Debugging can be frustrating, but it will definitely be part of your job, it requires experience and methodology to become good at it. The good news is that bugs are never going away, and the more experienced you become, trickier bugs will be assigned to you! Good luck :)
 
