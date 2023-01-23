@@ -3,7 +3,7 @@
 # these scripts are an upgrade from the web-server scripts...
 
 # uncomment to see the script run in action
-#set -x
+set -x
 
 # colors
 blue='\e[1;34m'
@@ -87,4 +87,4 @@ if [ "$(pgrep -c nginx)" -le 0 ]; then
 	sudo service nginx start
 else
 	sudo service nginx restart
-fit
+fi
