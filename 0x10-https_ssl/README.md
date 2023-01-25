@@ -21,21 +21,21 @@ Configure your domain zone so that the subdomain www points to your load-balance
 * Add the subdomain web-02 to your domain, point it to your web-02 IP
 * Your Bash script must accept 2 arguments:
 * domain:
-** type: string
-** what: domain name to audit
-** mandatory: yes
+	- type: string
+	- what: domain name to audit
+	- mandatory: yes
 * subdomain:
-** type: string
-** what: specific subdomain to audit
-** mandatory: no
+	- type: string
+	- what: specific subdomain to audit
+	- mandatory: no
 * Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
 * When only the parameter domain is provided, display information for its subdomains www, lb-01, web-01 and web-02 - in this specific order
 * When passing domain and subdomain parameters, display information for the specified subdomain
 `Ignore shellcheck case SC2086`
 * Must use:
-** awk
-** at least one Bash function
+	- awk
+	- at least one Bash function
 * You do not need to handle edge cases such as:
-** Empty parameters
-** Nonexistent domain names
-** Nonexistent subdomains
+	- Empty parameters
+	- Nonexistent domain names
+	- Nonexistent subdomains
