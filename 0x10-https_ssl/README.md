@@ -31,7 +31,7 @@ Configure your domain zone so that the subdomain www points to your load-balance
 * Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
 * When only the parameter domain is provided, display information for its subdomains www, lb-01, web-01 and web-02 - in this specific order
 * When passing domain and subdomain parameters, display information for the specified subdomain
-`Ignore shellcheck case SC2086`
+* `Ignore shellcheck case SC2086`
 * Must use:
 	- awk
 	- at least one Bash function
