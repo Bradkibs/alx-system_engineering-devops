@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-A script to return information about TODO list progress of employees given
+A script to return information about
+Todos list progress of employees given
 their ID's
 """
 
@@ -15,18 +16,18 @@ payload = {'userId': str(sys.argv[1])}
 try:
     req_1 = requests.get(url_2)
     json_1 = req_1.json()
-    id = int(sys.argv[1])
+    idx = int(sys.argv[1])
     count = 0
     completed = 0
     titles = []
     for i in json_1:
-        if (i.get("id") == id):
+        if i.get("id") == idx:
             name = i.get("name")
     req_2 = requests.get(url_1, params=payload)
     json_2 = req_2.json()
     for j in json_2:
         count += 1
-        if (j.get("completed")):
+        if j.get("completed"):
             completed += 1
             titles.append(j.get("title"))
     print(f"Employee {name} is done with tasks({completed}/{count}):")
