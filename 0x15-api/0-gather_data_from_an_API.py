@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-A script to return information about
+"""A script to return information about
 Todos list progress of employees given
 their ID's
 """
