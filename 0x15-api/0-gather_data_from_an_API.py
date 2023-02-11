@@ -1,41 +1,33 @@
 #!/usr/bin/python3
-"""A script to return information about
-Todos list progress of employees given
-their ID's
 """
-
-import os
+Using https://jsonplaceholder.typicode.com
+returns info about employee TODO progress
+Implemented using recursion
+"""
+import re
 import requests
 import sys
 
 
+API = "https://jsonplaceholder.typicode.com"
+"""REST API url"""
+
+
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        raise("Please enter the user Id you wish to find details about")
-    url_a = 'https://jsonplaceholder.typicode.com/todos'
-    url_b = 'https://jsonplaceholder.typicode.com/users'
-    payload = {'userId': str(sys.argv[1])}
-    try:
-        req_b = requests.get(url_b)
-        json_b = req_b.json()
-        idx = int(sys.argv[1])
-        count = 0
-        completed = 0
-        titles = []
-        for i in json_b:
-            if i.get("id") == idx:
-                name = i.get("name")
-        req_a = requests.get(url_a, params=payload)
-        json_a = req_a.json()
-        for j in json_a:
-            count += 1
-            if j.get("completed"):
-                completed += 1
-                titles.append(j.get("title"))
-        print(f"Employee {name} is done with tasks({completed}/{count}):")
-        [print("\t" + " " + t) for t in titles]
-    except Exception as e:
-        exc_type, exc_obj, exc_tb = sys.exc_info()
-        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-        print("Error!")
-        print(exc_type, fname, exc_tb.tb_lineno)
+    if len(sys.argv) > 1:
+        if re.fullmatch(r'\d+', sys.argv[1]):
+            id = int(sys.argv[1])
+            user_res = requests.get('{}/users/{}'.format(API, id)).json()
+            todos_res = requests.get('{}/todos'.format(API)).json()
+            user_name = user_res.get('name')
+            todos = list(filter(lambda x: x.get('userId') == id, todos_res))
+            todos_done = list(filter(lambda x: x.get('completed'), todos))
+            print(
+                'Employee {} is done with tasks({}/{}):'.format(
+                    user_name,
+                    len(todos_done),
+                    len(todos)
+                )
+            )
+            for todo_done in todos_done:
+                print('\t {}'.format(todo_done.get('title')))
