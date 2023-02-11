@@ -7,10 +7,10 @@ import requests
 import sys
 
 
-"""CSV files writing"""
-
-
 if __name__ == "__main__":
+    """CSV files writing"""
+
+
     if len(sys.argv) != 2:
         print("Please enter the user Id you wish to find details about")
         sys.exit()
