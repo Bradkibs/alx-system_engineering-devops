@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""Getting data from a rest API and exporting it to a
+"""
+Getting data from a rest API and exporting it to a
 CSV file
 """
-
 import requests
 import sys
 
