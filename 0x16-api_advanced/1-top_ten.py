@@ -19,13 +19,11 @@ def top_ten(subreddit):
     url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
     header = {"User-Agent": "Mozilla/5.0"}
     resp = requests.get(url, headers=header, allow_redirects=False)
-    titles = ["nothing here"]
 
     if resp.status_code == 200:
         children = resp.json().get("data").get("children")
         titles = [child.get("data").get("title") for child in children]
         output = "\n".join(titles)
         print(output)
-        return output
     else:
-        return None
+        print(None)
