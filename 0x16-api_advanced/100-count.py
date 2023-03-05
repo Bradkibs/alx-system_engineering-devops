@@ -63,10 +63,10 @@ def count_words(subreddit, word_list):
 
     lis = sorted(dictionary.items(), key=lambda kv: kv[1])
     lis.reverse()
-
     if len(lis) != 0:
-        for item in lis:
-            if item[1] is not 0:
+        small = set([(item[0].lower(), item[1]) for item in lis])
+        for item in small:
+            if item[1] != 0:
                 print("{}: {}".format(item[0], item[1]))
     else:
         print("")
