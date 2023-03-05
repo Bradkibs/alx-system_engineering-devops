@@ -3,6 +3,8 @@
 Queries the Reddit API and returns the number of subscribers for a given subreddit.
 """
 
+
+import json
 import requests
 
 
@@ -16,4 +18,4 @@ def number_of_subscribers(subreddit):
         return 0
 
     data = response.json()
-    return data['data']['subscribers']
+    return data.get("data").get("subscribers")
